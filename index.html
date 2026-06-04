@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勉強ログ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Study Log</p>
+        <h1>勉強ログ</h1>
+      </div>
+      <section class="today-count" aria-label="今日学んだ数">
+        <span id="todayCount">0</span>
+        <small>今日のログ</small>
+      </section>
+    </header>
+
+    <section class="log-form-section" aria-labelledby="formTitle">
+      <h2 id="formTitle">今日の学習を記録</h2>
+      <form id="logForm" class="log-form">
+        <label for="categoryInput">カテゴリ</label>
+        <select id="categoryInput" name="category" required>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Codex">Codex</option>
+          <option value="Git">Git</option>
+          <option value="AI活用">AI活用</option>
+          <option value="その他">その他</option>
+        </select>
+
+        <label for="contentInput">学習内容</label>
+        <textarea id="contentInput" name="content" rows="5" placeholder="今日学んだこと、試したこと、気づいたことを書く" required></textarea>
+
+        <button type="submit">保存する</button>
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="filter-section" aria-labelledby="filterTitle">
+      <h2 id="filterTitle">ログを探す</h2>
+      <div class="filters">
+        <label for="categoryFilter">カテゴリ</label>
+        <select id="categoryFilter">
+          <option value="all">すべて</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Codex">Codex</option>
+          <option value="Git">Git</option>
+          <option value="AI活用">AI活用</option>
+          <option value="その他">その他</option>
+        </select>
+
+        <label for="keywordInput">キーワード</label>
+        <input id="keywordInput" type="search" placeholder="例: 関数、コミット、プロンプト">
+      </div>
+    </section>
+
+    <section class="log-list-section" aria-labelledby="listTitle">
+      <div class="section-heading">
+        <h2 id="listTitle">保存済みログ</h2>
+        <span id="resultCount" class="result-count">0件</span>
+      </div>
+      <div id="logList" class="log-list"></div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
