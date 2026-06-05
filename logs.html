@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勉強ログ | ログ一覧</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Study Logs</p>
+        <h1>ログ一覧</h1>
+      </div>
+      <section class="today-count" aria-label="今日学んだ数">
+        <span id="todayCount">0</span>
+        <small>今日のログ</small>
+      </section>
+    </header>
+
+    <nav class="app-nav" aria-label="ページ移動">
+      <a href="index.html">記録</a>
+      <a href="calendar.html">カレンダー</a>
+      <a class="active" href="logs.html">ログ一覧</a>
+    </nav>
+
+    <section class="filter-section" aria-labelledby="filterTitle">
+      <h2 id="filterTitle">ログを探す</h2>
+      <div class="filters">
+        <label for="categoryFilter">カテゴリ</label>
+        <select id="categoryFilter">
+          <option value="all">すべて</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Codex">Codex</option>
+          <option value="Git">Git</option>
+          <option value="AI活用">AI活用</option>
+          <option value="その他">その他</option>
+        </select>
+
+        <label for="keywordInput">キーワード</label>
+        <div class="search-box">
+          <input id="keywordInput" type="search" placeholder="例: 関数、コミット、プロンプト">
+          <button id="searchButton" class="search-button" type="button" aria-label="検索する">
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="log-list-section" aria-labelledby="listTitle">
+      <div class="section-heading">
+        <h2 id="listTitle">保存済みログ</h2>
+        <div class="list-actions">
+          <span id="resultCount" class="result-count">0件</span>
+          <button id="csvExportButton" class="secondary-button" type="button">CSV</button>
+        </div>
+      </div>
+      <div id="logList" class="log-list"></div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

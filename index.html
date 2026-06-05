@@ -19,17 +19,31 @@
       </section>
     </header>
 
+    <nav class="app-nav" aria-label="ページ移動">
+      <a class="active" href="index.html">記録</a>
+      <a href="calendar.html">カレンダー</a>
+      <a href="logs.html">ログ一覧</a>
+    </nav>
+
     <section class="log-form-section" aria-labelledby="formTitle">
       <h2 id="formTitle">今日の学習を記録</h2>
       <form id="logForm" class="log-form">
-        <label for="categoryInput">カテゴリ</label>
-        <select id="categoryInput" name="category" required>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Codex">Codex</option>
-          <option value="Git">Git</option>
-          <option value="AI活用">AI活用</option>
-          <option value="その他">その他</option>
-        </select>
+        <fieldset class="category-field">
+          <legend>カテゴリ</legend>
+          <label><input type="checkbox" name="categories" value="JavaScript"> JavaScript</label>
+          <label><input type="checkbox" name="categories" value="Codex"> Codex</label>
+          <label><input type="checkbox" name="categories" value="Git"> Git</label>
+          <label><input type="checkbox" name="categories" value="AI活用"> AI活用</label>
+          <label><input type="checkbox" name="categories" value="その他"> その他</label>
+        </fieldset>
+
+        <div id="otherCategoryField" class="other-category-field" hidden>
+          <label for="otherCategoryInput">その他の内容</label>
+          <input id="otherCategoryInput" name="otherCategory" type="text" placeholder="例: 英語、資格勉強、読書">
+        </div>
+
+        <label for="studyMinutesInput">学習時間（分）</label>
+        <input id="studyMinutesInput" name="studyMinutes" type="number" min="0" step="5" placeholder="例: 30">
 
         <label for="contentInput">学習内容</label>
         <textarea id="contentInput" name="content" rows="5" placeholder="今日学んだこと、試したこと、気づいたことを書く" required></textarea>
@@ -37,32 +51,6 @@
         <button type="submit">保存する</button>
         <p id="formMessage" class="form-message" aria-live="polite"></p>
       </form>
-    </section>
-
-    <section class="filter-section" aria-labelledby="filterTitle">
-      <h2 id="filterTitle">ログを探す</h2>
-      <div class="filters">
-        <label for="categoryFilter">カテゴリ</label>
-        <select id="categoryFilter">
-          <option value="all">すべて</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Codex">Codex</option>
-          <option value="Git">Git</option>
-          <option value="AI活用">AI活用</option>
-          <option value="その他">その他</option>
-        </select>
-
-        <label for="keywordInput">キーワード</label>
-        <input id="keywordInput" type="search" placeholder="例: 関数、コミット、プロンプト">
-      </div>
-    </section>
-
-    <section class="log-list-section" aria-labelledby="listTitle">
-      <div class="section-heading">
-        <h2 id="listTitle">保存済みログ</h2>
-        <span id="resultCount" class="result-count">0件</span>
-      </div>
-      <div id="logList" class="log-list"></div>
     </section>
   </main>
 

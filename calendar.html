@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勉強ログ | カレンダー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Study Calendar</p>
+        <h1>カレンダー</h1>
+      </div>
+      <section class="today-count" aria-label="今月の学習時間">
+        <span id="monthTotalMinutes">0</span>
+        <small>今月の分</small>
+      </section>
+    </header>
+
+    <nav class="app-nav" aria-label="ページ移動">
+      <a href="index.html">記録</a>
+      <a class="active" href="calendar.html">カレンダー</a>
+      <a href="logs.html">ログ一覧</a>
+    </nav>
+
+    <section class="calendar-section" aria-labelledby="calendarTitle">
+      <div class="section-heading">
+        <h2 id="calendarTitle">学習時間カレンダー</h2>
+        <div class="calendar-actions">
+          <button id="prevMonthButton" class="secondary-button" type="button">前月</button>
+          <span id="currentMonthLabel" class="result-count"></span>
+          <button id="nextMonthButton" class="secondary-button" type="button">次月</button>
+        </div>
+      </div>
+
+      <div class="calendar-summary">
+        <div>
+          <span id="monthLogCount">0</span>
+          <small>今月のログ</small>
+        </div>
+        <div>
+          <span id="topStudyDay">-</span>
+          <small>一番学んだ日</small>
+        </div>
+      </div>
+
+      <div class="calendar-weekdays" aria-hidden="true">
+        <span>日</span>
+        <span>月</span>
+        <span>火</span>
+        <span>水</span>
+        <span>木</span>
+        <span>金</span>
+        <span>土</span>
+      </div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+
+      <div class="calendar-legend" aria-label="色の目安">
+        <span>少</span>
+        <i class="level-0"></i>
+        <i class="level-1"></i>
+        <i class="level-2"></i>
+        <i class="level-3"></i>
+        <i class="level-4"></i>
+        <span>多</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
