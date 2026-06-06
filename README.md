@@ -2,6 +2,10 @@
 
 毎日学んだことを記録できる、HTML / CSS / JavaScript だけのシンプルなWebアプリです。
 
+## 公開ページ
+
+[勉強ログアプリを開く](https://harunoshin1117-commits.github.io/learning-log-app/)
+
 ## 機能
 
 - 学習内容の入力
